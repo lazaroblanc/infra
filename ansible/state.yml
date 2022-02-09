@@ -8,8 +8,8 @@
         name: willshersystems.sshd
       vars:
         sshd:
-          PrintMotd: no
-          PrintLastLog: no
+          PrintMotd: no # Debian shows the motd by default via a PAM module. Setting this to no prevents the motd from being displayed twice
+          PrintLastLog: yes
           PasswordAuthentication: no
           ChallengeResponseAuthentication: no
 
