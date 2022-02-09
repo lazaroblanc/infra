@@ -31,3 +31,4 @@
     - name: Install Docker Python SDK
       ansible.builtin.pip:
         name: docker
+        state: present
