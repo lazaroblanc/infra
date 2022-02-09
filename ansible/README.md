@@ -1,41 +1,39 @@
-## Setting up Ansible on Ubuntu (WSL)
+# Ansible
+
+## Set-up
+
+### Setting up Ansible on Ubuntu (WSL)
+
+Use WSL to run Ansible commands.
 
 https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-ubuntu
 
 ```
 sudo apt update
-```
-
-```
 sudo apt install software-properties-common
-```
-
-```
 sudo add-apt-repository --yes --update ppa:ansible/ansible
-```
-
-```
 sudo apt install ansible
 ```
 
-## Install required Ansible roles/collections
+### Install required Ansible roles/collections
 
 ```
 ansible-galaxy install -r requirements.yml
 ```
 
+## Running playbooks
+### Mitigate constant SSH key passphrase prompts
 
-## Run Ansible playbook
-
-Store SSH identity so you don't get prompted for the SSH key passphrase (which doesn't work interactively for me)
+Store SSH identity for this session so you don't get prompted for the SSH key passphrase
 
 ```
-eval "$(ssh-agent -s)"
-ssh-add /mnt/e/Important\ Files/ssh_keys/lazaro
+eval "$(ssh-agent -s)" && ssh-add /mnt/e/Important\ Files/ssh_keys/lazaro
 ```
 
-Then you can run the playbooks like this. All parameters  for this command except the playbook name are defined in the ansible.cfg file
+### Run the playbooks
 
 ```
 ansible-playbook state.yml
 ```
+
+The playbook file name should be sufficient. All other parameters values are defined in the [ansible.cfg](ansible.cfg) file.
