@@ -15,6 +15,16 @@ sudo add-apt-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible
 ```
 
+### Troubleshooting
+On WSLv1 the host filesystem is mounted with full permissions for everyone.
+Create `/etc/wsl.conf` with the following content to mitigate security risk of running Ansible with an `ansible.cfg` from a world-writable directory
+
+```
+[automount]
+enabled = true
+options = metadata,umask=022
+```
+
 ### Install required Ansible roles/collections
 
 ```
