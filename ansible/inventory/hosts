@@ -1,5 +1,0 @@
-[servers]
-fihelhzls01.blnc.io
-
-[servers:vars]
-ansible_user = root
