@@ -1,22 +1,16 @@
 - name: Deploy blnc.io services
-  hosts: all
+  hosts: hetzner
   strategy: free
 
   tasks:
     - name: Create sshd configuration
       include_role:
-        name: willshersystems.sshd
-      vars:
-        sshd:
-          PrintMotd: no # Debian shows the motd by default via a PAM module. Setting this to no prevents the motd from being displayed twice
-          PrintLastLog: yes
-          PasswordAuthentication: no
-          ChallengeResponseAuthentication: no
+        name: ssh
 
-    - name: Set motd
-      ansible.builtin.template:
-        src: ./files/motd.j2
-        dest: /etc/motd
+    - name: Common tasks for all servers
+      include_role:
+        name: common
+
 
     - name: Install Docker
       include_role:

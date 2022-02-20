@@ -1,11 +1,5 @@
 ansible_user: root
 
-essential_packages:
-  - htop
-  - iotop
-  - iftop
-  - nano
-
 # Variables used to define firewall rules for open inbound ports
 inbound_tcp_ports:
   - 22
