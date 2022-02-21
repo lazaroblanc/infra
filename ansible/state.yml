@@ -3,11 +3,11 @@
   strategy: free
 
   tasks:
-    - name: Create sshd configuration
+    - name: Apply SSH role
       include_role:
         name: ssh
 
-    - name: Common tasks for all servers
+    - name: Apply common role
       include_role:
         name: common
 
