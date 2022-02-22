@@ -1,5 +1,3 @@
 ansible_user: root
 
-# Variables used to define firewall rules for open inbound ports
-inbound_tcp_ports:
-  - 22
+domain: blnc.io

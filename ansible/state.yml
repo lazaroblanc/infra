@@ -1,6 +1,8 @@
 - name: Deploy blnc.io services
   hosts: hetzner
   strategy: free
+  vars_files:
+    - ./secrets.yml
 
   tasks:
     - name: Apply SSH role
@@ -14,3 +16,7 @@
     - name: Apply Docker role
       include_role:
         name: docker
+
+    - name: Apply Traefik role
+      include_role:
+        name: traefik
