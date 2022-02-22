@@ -32,6 +32,14 @@ ansible-galaxy install -r requirements.yml
 ```
 
 ## Running playbooks
+
+### Configure secrets.yml
+
+```
+cp secrets_example.yml secrets.yml
+nano secrets.yml
+```
+
 ### Mitigate constant SSH key passphrase prompts
 
 Store SSH identity for this session so you don't get prompted for the SSH key passphrase
