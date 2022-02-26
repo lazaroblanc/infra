@@ -1,5 +1,5 @@
 - name: Deploy blnc.io services
-  hosts: hetzner
+  hosts: netcup
   strategy: free
   vars_files:
     - ./secrets.yml
