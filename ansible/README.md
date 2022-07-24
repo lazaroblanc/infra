@@ -16,7 +16,7 @@ sudo apt install ansible
 ```
 
 ### Troubleshooting
-On WSLv1 the host filesystem is mounted with full permissions for everyone.
+On WSL the host filesystem is mounted with full permissions for everyone.
 Create `/etc/wsl.conf` with the following content to mitigate security risk of running Ansible with an `ansible.cfg` from a world-writable directory
 
 ```
