@@ -1,0 +1,18 @@
+- name: "Create {{ service_name }} folder and chmod"
+  ansible.builtin.file:
+    path: "{{ local_docker_directory }}/{{ service_name }}"
+    state: directory
+    mode: 0600
+    owner: root
+
+- name: "Copy {{ service_name }} docker-compose.yml"
+  ansible.builtin.template:
+    src: ../templates/docker-compose.yml
+    dest: "{{ local_docker_directory }}/{{ service_name }}"
+
+- name: "Start {{ service_name }} stack"
+  docker_compose:
+    project_src: "{{ local_docker_directory }}/{{ service_name }}"
+    pull: true
+    recreate: always
+    remove_orphans: true

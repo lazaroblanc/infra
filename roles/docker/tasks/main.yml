@@ -1,0 +1,26 @@
+# Docker Role for x86 systems
+- name: Install Docker
+  when: ansible_architecture == "x86_64"
+  include_role:
+    name: geerlingguy.docker
+
+# Docker Role for ARM systems
+- name: Install Docker
+  when: ansible_architecture == "aarch64"
+  include_role:
+    name: geerlingguy.docker_arm
+
+- name: Install Python Package Manager (pip)
+  apt:
+    name: python3-pip
+    state: present
+    update_cache: yes
+
+- name: Install Docker Python SDK
+  pip:
+    name: docker
+    state: present
+
+- name: Make sure docker-compose is installed as Python module
+  ansible.builtin.pip:
+    name: docker-compose

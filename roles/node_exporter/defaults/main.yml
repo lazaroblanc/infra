@@ -1,0 +1,2 @@
+service_name: node_exporter
+local_docker_directory: /docker

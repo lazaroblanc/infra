@@ -1,0 +1,2 @@
+service_name: portainer
+local_docker_directory: /docker

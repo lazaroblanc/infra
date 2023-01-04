@@ -4,3 +4,4 @@ common_packages:
   - iftop
   - nano
   - net-tools
+  - ufw

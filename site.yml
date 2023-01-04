@@ -1,0 +1,24 @@
+- name: Apply common and ssh role
+  tags: common
+  hosts: all
+  tasks:
+    - include_role:
+        name: common
+    - include_role:
+        name: ssh
+
+- name: Apply Docker role
+  tags: docker
+  hosts: docker
+  tasks:
+    - include_role:
+        name: docker
+    - include_role:
+        name: portainer
+
+- name: Launch monitoring containers
+  tags: monitoring
+  hosts: docker
+  tasks:
+    - include_role:
+        name: node_exporter
