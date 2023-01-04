@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  app:
+    container_name: "{{ service_name }}"
+    {% if ansible_architecture == "x86_64" -%}
+    image: gcr.io/cadvisor/cadvisor
+    {% endif -%}
+    {% if ansible_architecture == "aarch64" -%}
+    image: zcube/cadvisor
+    {% endif -%}
+    pull_policy: always
+    restart: unless-stopped
+    hostname: "{{ service_name }}"
+    privileged: true
+    ports:
+      - "9876:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
+    devices:
+      - /dev/kmsg

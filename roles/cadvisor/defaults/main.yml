@@ -1,0 +1,2 @@
+service_name: cadvisor
+local_docker_directory: /docker
