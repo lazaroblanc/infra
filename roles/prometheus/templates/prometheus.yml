@@ -21,6 +21,12 @@ scrape_configs:
       - targets:
           - pi4.blnc.io:9100 # node_exporter
 
+  - job_name: "plugs"
+    static_configs:
+      - targets:
+          - tasmota1 # tasmota1
+          - tasmota2 # tasmota2
+
   - job_name: "docker1"
     static_configs:
       - targets:
