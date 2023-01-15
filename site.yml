@@ -21,6 +21,13 @@
   hosts: docker
   tasks:
     - include_role:
-        name: node_exporter
+        name: prometheus
     - include_role:
         name: cadvisor
+
+- name: Launch monitoring containers
+  tags: node_exporter
+  hosts: servers
+  tasks:
+    - include_role:
+        name: node_exporter

@@ -1,0 +1,33 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  # - job_name: "docker"
+  #   docker_sd_configs:
+  #     - host: unix:///var/run/docker.sock
+
+  - job_name: "fw"
+    static_configs:
+      - targets:
+          - fw.blnc.io:9100 # node_exporter
+
+  - job_name: "nas"
+    static_configs:
+      - targets:
+          - nas.blnc.io:9100 # node_exporter
+
+  - job_name: "pi4"
+    static_configs:
+      - targets:
+          - pi4.blnc.io:9100 # node_exporter
+
+  - job_name: "docker1"
+    static_configs:
+      - targets:
+          - docker1.blnc.io:9090 # Prometheus
+          - docker1.blnc.io:9100 # node_exporter
+          - docker1.blnc.io:9876 # cAdvisor
+          # - localhost:9080 # Traefik
+          # - localhost:3001 # uptime-kuma
+          - docker1.blnc.io:3000 # Grafana
+          # - localhost:9300 # Authentik

@@ -1,0 +1,3 @@
+- name: Include node_exporter role
+  include_role:
+    name: cloudalchemy.node_exporter
