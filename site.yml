@@ -31,3 +31,10 @@
   tasks:
     - include_role:
         name: node_exporter
+
+- name: Launch grafana container
+  tags: grafana
+  hosts: docker
+  tasks:
+    - include_role:
+        name: grafana

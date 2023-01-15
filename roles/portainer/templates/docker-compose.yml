@@ -5,6 +5,7 @@ services:
     image: portainer/portainer-ee:latest
     container_name: "{{ service_name }}"
     restart: unless-stopped
+    network_mode: bridge
     ports:
       - 9443:9443
       - 8000:8000

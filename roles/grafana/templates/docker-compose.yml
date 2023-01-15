@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  app:
+    container_name: "{{ service_name }}"
+    image: grafana/grafana
+    pull_policy: always
+    restart: unless-stopped
+    hostname: "{{ service_name }}"
+    network_mode: bridge
+    ports:
+      - 3000:3000
+    volumes:
+      - data:/var/lib/grafana
+    environment:
+      # GF_SERVER_DOMAIN: "docker1"
+      # GF_SERVER_ROOT_URL: "http://docker1:3000/"
+      GF_METRICS_ENABLED: "true"
+      GF_INSTALL_PLUGINS: frser-sqlite-datasource,yesoreyeram-infinity-datasource
+      # GF_SMTP_ENABLED: "true"
+      # GF_SMTP_FROM_ADDRESS: noreply@grafana.blnc.io
+      # GF_SMTP_FROM_NAME: grafana.blnc.io
+      # labels:
+      #   traefik.enable: "true"
+      #   traefik.http.services.grafana.loadbalancer.server.port: "3000"
+      #   traefik.http.routers.grafana.rule: Host(`grafana.{{ domain }}`) && !PathPrefix(`/metrics`)
+      #   traefik.http.routers.grafana.entryPoints: websecure
+
+volumes:
+  data:
+    name: "{{ service_name }}"
+    driver: local
+    driver_opts:
+      type: nfs
+      o: "addr=nas.blnc.io,nolock,soft,rw,nfsvers=4,async"
+      device: ":/mnt/pool1/docker-nfs-volumes/{{ service_name }}"

@@ -1,0 +1,2 @@
+service_name: grafana
+local_docker_directory: /docker

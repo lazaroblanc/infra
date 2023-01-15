@@ -13,6 +13,7 @@ services:
     restart: unless-stopped
     hostname: "{{ service_name }}"
     privileged: true
+    network_mode: bridge
     ports:
       - "9876:8080"
     volumes:
