@@ -9,31 +9,31 @@ scrape_configs:
   - job_name: "fw"
     static_configs:
       - targets:
-          - fw.blnc.io:9100 # node_exporter
+          - fw.home.blnc.io:9100 # node_exporter
 
   - job_name: "nas"
     static_configs:
       - targets:
-          - nas.blnc.io:9100 # node_exporter
+          - nas.home.blnc.io:9100 # node_exporter
 
   - job_name: "pi4"
     static_configs:
       - targets:
-          - pi4.blnc.io:9100 # node_exporter
+          - pi4.home.blnc.io:9100 # node_exporter
 
   - job_name: "plugs"
     static_configs:
       - targets:
-          - tasmota1 # tasmota1
-          - tasmota2 # tasmota2
+          - tasmota1.home.blnc.io # tasmota1
+          - tasmota2.home.blnc.io # tasmota2
 
   - job_name: "docker1"
     static_configs:
       - targets:
-          - docker1.blnc.io:9090 # Prometheus
-          - docker1.blnc.io:9100 # node_exporter
-          - docker1.blnc.io:9876 # cAdvisor
+          - docker1.home.blnc.io:9090 # Prometheus
+          - docker1.home.blnc.io:9100 # node_exporter
+          - docker1.home.blnc.io:9876 # cAdvisor
           # - localhost:9080 # Traefik
           # - localhost:3001 # uptime-kuma
-          - docker1.blnc.io:3000 # Grafana
+          - docker1.home.blnc.io:3000 # Grafana
           # - localhost:9300 # Authentik

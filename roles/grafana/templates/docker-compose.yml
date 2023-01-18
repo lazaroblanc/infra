@@ -32,5 +32,5 @@ volumes:
     driver: local
     driver_opts:
       type: nfs
-      o: "addr=nas.blnc.io,nolock,soft,rw,nfsvers=4,async"
+      o: "addr=nas.home.blnc.io,nolock,soft,rw,nfsvers=4,async"
       device: ":/mnt/pool1/docker-nfs-volumes/{{ service_name }}"
