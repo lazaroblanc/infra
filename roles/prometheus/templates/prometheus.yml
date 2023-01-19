@@ -37,3 +37,8 @@ scrape_configs:
           # - localhost:3001 # uptime-kuma
           - docker1.home.blnc.io:3000 # Grafana
           # - localhost:9300 # Authentik
+
+  - job_name: "mc.blnc.io"
+    static_configs:
+      - targets:
+          - docker1.home.blnc.io:25566 # Minecraft

@@ -38,3 +38,10 @@
   tasks:
     - include_role:
         name: grafana
+
+- name: Launch Minecraft container
+  tags: minecraft
+  hosts: docker1
+  tasks:
+    - include_role:
+        name: minecraft
